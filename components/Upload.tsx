@@ -15,7 +15,10 @@ const Upload = ({ onComplete = () => {} }: UploadProps) => {
   const [file, setFile] = useState<File | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [error, setError] = useState<string | null>(null);
   const { isSignedIn } = useOutletContext<AuthContext>();
+
+  const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 
   const intervalRef = useRef<number | null>(null);
   const timeoutRef = useRef<number | null>(null);
@@ -43,34 +46,52 @@ const Upload = ({ onComplete = () => {} }: UploadProps) => {
 
     setFile(incomingFile);
     setProgress(0);
+    setError(null);
 
     let base64: string | null = null;
     const reader = new FileReader();
 
     reader.onload = () => {
       base64 = String(reader.result ?? "");
+
+      intervalRef.current = window.setInterval(() => {
+        setProgress((curr) => {
+          const next = Math.min(100, curr + PROGRESS_INCREMENT);
+          if (next === 100) {
+            clearTimers();
+            timeoutRef.current = window.setTimeout(() => {
+              onComplete(base64 ?? "");
+            }, REDIRECT_DELAY_MS);
+          }
+          return next;
+        });
+      }, PROGRESS_INTERVAL_MS);
+    };
+
+    reader.onerror = (err) => {
+      clearTimers();
+      setProgress(0);
+      setFile(null);
+      setError("Failed to read file. Please try again.");
+      // eslint-disable-next-line no-console
+      console.error("FileReader error", err);
     };
 
     reader.readAsDataURL(incomingFile);
-
-    intervalRef.current = window.setInterval(() => {
-      setProgress((curr) => {
-        const next = Math.min(100, curr + PROGRESS_INCREMENT);
-        if (next === 100) {
-          clearTimers();
-          timeoutRef.current = window.setTimeout(() => {
-            onComplete(base64 ?? "");
-          }, REDIRECT_DELAY_MS);
-        }
-        return next;
-      });
-    }, PROGRESS_INTERVAL_MS);
   };
 
   const handleFiles = (files: FileList | null) => {
     if (!isSignedIn) return;
     if (!files?.length) return;
-    processFile(files[0]);
+
+    const incomingFile = files[0];
+    if (incomingFile.size > MAX_FILE_SIZE) {
+      setError('File is too large. Please upload files under 10MB.');
+      return;
+    }
+
+    setError(null);
+    processFile(incomingFile);
   };
 
   const onDragOver = (event: React.DragEvent) => {
@@ -117,6 +138,7 @@ const Upload = ({ onComplete = () => {} }: UploadProps) => {
                 : 'Sign in or sign up with puter'}
             </p>
             <p className='help'>Maximum file size 10MB</p>
+            {error ? <p className='error'>{error}</p> : null}
           </div>
         </div>
       ) : (
