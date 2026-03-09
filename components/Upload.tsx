@@ -85,8 +85,9 @@ const Upload = ({ onComplete = () => {} }: UploadProps) => {
     if (!files?.length) return;
 
     const incomingFile = files[0];
-    if (incomingFile.size > MAX_FILE_SIZE) {
-      setError('File is too large. Please upload files under 10MB.');
+    const allowedTypes = ['image/jpeg' , 'image/png']
+    if (incomingFile.size > MAX_FILE_SIZE && !(allowedTypes.includes(incomingFile.type))) {
+      setError('File is too large. Please upload files under 10MB. Or try jpg or png.');
       return;
     }
 
