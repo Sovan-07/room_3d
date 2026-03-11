@@ -121,7 +121,9 @@ const Upload = ({ onComplete = () => {} }: UploadProps) => {
           onDragEnter={onDragOver}
           onDragLeave={onDragLeave}
           onDrop={onDrop}
+
         >
+          <p>Hello</p>
           <input
             type='file'
             className='drop-input'
