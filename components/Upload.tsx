@@ -123,7 +123,6 @@ const Upload = ({ onComplete = () => {} }: UploadProps) => {
           onDrop={onDrop}
 
         >
-          <p>Hello</p>
           <input
             type='file'
             className='drop-input'
