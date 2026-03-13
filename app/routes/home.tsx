@@ -53,7 +53,7 @@ export default function Home() {
   useEffect(()=>{
     const fetchedProjects = async()=>{
       const items = await getProjects();
-      setProjects(items!)
+      setProjects(items ?? [])
     }
     fetchedProjects();
   },[])
