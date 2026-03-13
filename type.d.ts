@@ -119,7 +119,6 @@ interface StoreHostedImageParams {
 interface CreateProjectParams {
     item: DesignItem;
     visibility?: "private" | "public";
-    timeStamp : number
 }
 
 interface Generate3DViewParams {
