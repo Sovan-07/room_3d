@@ -85,7 +85,7 @@ const Upload = ({ onComplete = () => {} }: UploadProps) => {
     if (!files?.length) return;
 
     const incomingFile = files[0];
-    const allowedTypes = ['image/jpeg' , 'image/png']
+    const allowedTypes = ['image/jpeg' , 'image/png' , 'image/webp']
     if (incomingFile.size > MAX_FILE_SIZE || !(allowedTypes.includes(incomingFile.type))) {
       setError('File is too large. Please upload files under 10MB. Or try jpg or png.');
       return;
@@ -126,7 +126,7 @@ const Upload = ({ onComplete = () => {} }: UploadProps) => {
           <input
             type='file'
             className='drop-input'
-            accept='.jpg, .jpeg, .png'
+            accept='.jpg, .jpeg, .png, .webp'
             disabled={!isSignedIn}
             onChange={(event) => handleFiles(event.target.files)}
           />
