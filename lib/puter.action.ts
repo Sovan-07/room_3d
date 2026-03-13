@@ -100,6 +100,7 @@ export const getProjects = async() => {
 
     }catch(e) {
         console.error('Failed to get projects' , e)
+        return [];
     }
 }
 
