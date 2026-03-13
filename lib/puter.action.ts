@@ -31,6 +31,7 @@ export const createProject = async ({item} : CreateProjectParams):
     );
     if(!resolvedSource) {
         console.warn('Failed to host source image , skipping save.');
+        return null;
     }
 
     const resolvedRender = hostedRender?.url
