@@ -1,87 +1,241 @@
-# Welcome to React Router!
+# Room 3D 🏠✨
 
-A modern, production-ready template for building full-stack React applications using React Router.
+An interactive 3D Room visualization web application built using modern web technologies. The project allows users to explore a realistic 3D room environment directly in the browser with smooth rendering, immersive interactions, and responsive performance.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+The application demonstrates the use of 3D graphics on the web for creating engaging and visually appealing user experiences.
 
-## Features
+---
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+# 🌐 Live Demo
 
-## Getting Started
+🚀 Test Deployment:
 
-### Installation
+https://view-3d.onrender.com
 
-Install the dependencies:
+---
+
+# 📂 Repository
+
+📦 GitHub Repository:
+
+https://github.com/Sovan-07/room_3d
+
+---
+
+# ✨ Features
+
+- 🏠 Interactive 3D room visualization
+- 🎮 Smooth camera movement and scene interaction
+- 🌌 Realistic 3D environment rendering
+- ⚡ Optimized rendering performance
+- 📱 Fully responsive design
+- 🎨 Modern and immersive UI
+- 🖱️ Mouse-based interaction and controls
+- 🔄 Real-time scene updates
+- ☁️ Deployed online for public access
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
+- React.js
+- Three.js
+- JavaScript / TypeScript
+- Tailwind CSS
+
+## 3D Rendering
+- WebGL
+- Three.js
+
+## Deployment
+- Render
+
+---
+
+# 📁 Project Structure
+
+```bash
+room_3d/
+│
+├── public/                # Static assets and 3D models
+├── src/
+│   ├── components/        # Reusable React components
+│   ├── scenes/            # 3D scene configurations
+│   ├── assets/            # Textures, models, and images
+│   ├── styles/            # Global styles
+│   └── utils/             # Utility/helper functions
+│
+├── package.json
+├── vite.config.js / next.config.js
+└── README.md
+```
+
+---
+
+# ⚙️ Installation & Setup
+
+## 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/Sovan-07/room_3d.git
+```
+
+## 2️⃣ Navigate to the Project Directory
+
+```bash
+cd room_3d
+```
+
+## 3️⃣ Install Dependencies
+
+Using npm:
 
 ```bash
 npm install
 ```
 
-### Development
+Or using yarn:
 
-Start the development server with HMR:
+```bash
+yarn install
+```
+
+---
+
+# ▶️ Running the Project Locally
+
+## Start Development Server
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+The application will run on:
 
-## Building for Production
+```bash
+http://localhost:5173
+```
 
-Create a production build:
+---
+
+# 🔐 Environment Variables
+
+Create a `.env` file in the root directory if required.
+
+Example:
+
+```env
+VITE_APP_URL=http://localhost:5173
+```
+
+---
+
+# 📦 Build for Production
 
 ```bash
 npm run build
 ```
 
-## Deployment
+---
 
-### Docker Deployment
-
-To build and run using Docker:
+# 🚀 Preview Production Build
 
 ```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
+npm run preview
 ```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
 
 ---
 
-Built with ❤️ using React Router.
+# 🧪 Available Scripts
+
+```bash
+npm run dev        # Start development server
+npm run build      # Create production build
+npm run preview    # Preview production build
+```
+
+---
+
+# 📱 Responsive Design
+
+The application is optimized for:
+
+- Desktop 💻
+- Tablet 📱
+- Mobile Devices 📲
+
+---
+
+# 🎮 User Interaction
+
+Users can:
+
+- Rotate the 3D scene
+- Zoom in/out
+- Explore room elements interactively
+- Experience immersive 3D rendering in-browser
+
+---
+
+# 🚀 Deployment
+
+This project is deployed using:
+
+- ▲ Render
+
+Live URL:
+
+https://view-3d.onrender.com
+
+---
+
+# 🎯 Future Improvements
+
+- 🌙 Dark/Light theme support
+- 🛋️ More customizable room assets
+- 🎨 Advanced lighting and shadows
+- 🧍 Character interaction support
+- 🔊 Spatial audio integration
+- 📦 Import custom 3D models
+- 🥽 VR support
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome!
+
+## Steps to Contribute
+
+1. Fork the repository
+
+2. Create a new branch
+
+```bash
+git checkout -b feature-name
+```
+
+3. Commit your changes
+
+```bash
+git commit -m "Add new feature"
+```
+
+4. Push to your branch
+
+```bash
+git push origin feature-name
+```
+
+5. Open a Pull Request
+
+---
+
+# 👨‍💻 Author
+
+Developed by **Sovan Mondal**
+
+GitHub:
+
+https://github.com/Sovan-07
